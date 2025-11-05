@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Smart Student Report</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header class="app-header">
+      <h1>JS Challenge: Smart Student Report System</h1>
+      <p class="subtitle">Enter details and generate a formatted report</p>
+    </header>
+
+    <main class="container">
+      <section class="card">
+        <h2 class="card-title">Inputs</h2>
+        <form id="reportForm" autocomplete="off" novalidate>
+          <div class="field">
+            <label for="studentName">Student Name</label>
+            <input
+              id="studentName"
+              name="studentName"
+              type="text"
+              placeholder="e.g., Ahmed"
+              required
+            />
+          </div>
+
+          <div class="field">
+            <label for="subject">Subject</label>
+            <input
+              id="subject"
+              name="subject"
+              type="text"
+              placeholder="e.g., Math"
+              list="subjects"
+              required
+            />
+            <datalist id="subjects">
+              <option value="Math"></option>
+              <option value="Science"></option>
+              <option value="History"></option>
+              <option value="English"></option>
+              <option value="Programming"></option>
+            </datalist>
+          </div>
+
+          <div class="field">
+            <label for="score">Score (0–100)</label>
+            <input
+              id="score"
+              name="score"
+              type="number"
+              inputmode="numeric"
+              min="0"
+              max="100"
+              step="1"
+              placeholder="e.g., 92"
+              required
+            />
+          </div>
+
+          <div class="actions">
+            <button type="submit" class="btn primary">Generate Report</button>
+            <button
+              type="button"
+              id="copyBtn"
+              class="btn"
+              title="Copy report to clipboard"
+            >
+              Copy
+            </button>
+            <span id="feedback" role="status" aria-live="polite"></span>
+          </div>
+        </form>
+      </section>
+
+      <section class="card">
+        <h2 class="card-title">Report</h2>
+        <pre
+          id="output"
+          class="report"
+          aria-label="Student report"
+          tabindex="0"
+        >
+Fill the form and click Generate.</pre
+        >
+      </section>
+
+      <section class="card hint">
+        <h2 class="card-title">Grading Rules</h2>
+        <ul>
+          <li>Score &gt; 90 → Grade: A, Status: Excellent 🔥</li>
+          <li>75 ≤ Score &lt; 90 → Grade: B, Status: Very Good 😀</li>
+          <li>60 ≤ Score &lt; 75 → Grade: C, Status: Good 🙂</li>
+          <li>Else → Grade: F, Status: Needs Improvement 😅</li>
+        </ul>
+      </section>
+    </main>
+
+    <script src="script.js"></script>
+  </body>
+</html>
